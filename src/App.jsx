@@ -8,14 +8,10 @@ import List from './assets/components/List';
 function App() {
   const [web, setWeb] = useState([]);
   const [webSearchText, setWebSearchText] = useState('');
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('web');
 
   const webSearch = async () => {
-    let category = value || 'web';
-    if (!category) {
-      category = 'web';
-    }
-    const url = `https://dapi.kakao.com/v2/search/${category}`;
+    const url = `https://dapi.kakao.com/v2/search/${value}`;
 
     try {
       const result = await axios.get(url, {
@@ -31,7 +27,6 @@ function App() {
       setWeb(result.data.documents);
     } catch (error) {
       console.log(error);
-      setWeb([]); // Handle error condition by setting web state to an empty array
     }
   };
 

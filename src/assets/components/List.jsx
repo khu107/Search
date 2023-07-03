@@ -2,8 +2,6 @@ import { styled } from 'styled-components';
 import '../../App.css';
 
 function List({ web, value }) {
-  console.log(value);
-
   const renderContent = () => {
     switch (value) {
       case 'image':
